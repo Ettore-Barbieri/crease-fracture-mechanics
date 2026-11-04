@@ -7,6 +7,7 @@ authors:
     given-names: Ettore
     affiliation: "Japan Agency for Marine-Earth Science and Technology (JAMSTEC)"
 license: MIT
+doi: 10.5281/zenodo.23941165
 repository-code: "https://github.com/Ettore-Barbieri/crease-fracture-mechanics"
 version: 1.0.0
 date-released: 2026-11-04

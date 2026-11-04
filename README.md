@@ -1,5 +1,7 @@
 # Creases in the light of fracture mechanics: code and data
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23941165.svg)](https://doi.org/10.5281/zenodo.23941165)
+
 This repository holds the code and data behind the paper
 
 > E. Barbieri, *Creases in the light of fracture mechanics*, submitted (2026).
@@ -69,11 +71,11 @@ These follow the paper.
 
 ## The meshfree code
 
-The nonlinear results of Section 8 come from Curvami, a meshfree code for Kirchhoff–Love plates and shells with creases. Curvami is a separate repository: https://github.com/Ettore-Barbieri/Curvami-Official (DOI: to be added).
+The nonlinear results of Section 8 come from Curvami, a meshfree code for Kirchhoff–Love plates and shells with creases. Curvami is a separate repository: https://github.com/Ettore-Barbieri/Curvami-Official (DOI: [10.5281/zenodo.23941187](https://doi.org/10.5281/zenodo.23941187)).
 
 ## How to cite
 
-Please cite the paper. To cite this code and data, use the Zenodo DOI of this repository (to be added) or the file `CITATION.cff`.
+Please cite the paper. To cite this code and data, use the Zenodo DOI of this repository, [10.5281/zenodo.23941165](https://doi.org/10.5281/zenodo.23941165), or the file `CITATION.cff`.
 
 ## Licence
 
