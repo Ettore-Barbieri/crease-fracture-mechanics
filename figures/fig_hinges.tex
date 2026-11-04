@@ -1,0 +1,31 @@
+% Three kinds of crease, in a section normal to the crease (adapted from the working notes).
+\begin{tikzpicture}[>=Stealth]
+  % (A)
+  \begin{scope}
+    \draw[very thick, blue!60!black] (-1.9,0.75) -- (0,0) -- (1.9,0.75);
+    \draw[dashed, gray] (0,0) -- (1.9,-0.75);
+    \draw[->] (1.45,-0.57) arc[start angle=-21.5, end angle=21.5, radius=1.55];
+    \node[right] at (1.6,0) {$\theta_0$};
+    \fill (0,0) circle (1.8pt);
+    \node[font=\small, align=center] at (0,-1.5) {(A) prescribed crease\\ $\theta=\theta_0$, no load};
+  \end{scope}
+  % (B)
+  \begin{scope}[xshift=5.2cm]
+    \draw[very thick, blue!60!black] (-1.9,0.3) -- (0,0) -- (1.9,0.3);
+    \draw[thick, fill=white] (0,0) circle (3pt);
+    \draw[->, thick] (-2.05,0.7) arc[start angle=110, end angle=250, radius=0.4];
+    \draw[->, thick] (2.05,0.7) arc[start angle=70, end angle=-70, radius=0.4];
+    \node[font=\small] at (-2.05,1.0) {$M_0$}; \node[font=\small] at (2.05,1.0) {$M_0$};
+    \node[font=\small] at (0,0.5) {$M_{yy}=0$};
+    \node[font=\small, align=center] at (0,-1.5) {(B) free hinge\\ remote moment $M_0$};
+  \end{scope}
+  % (C)
+  \begin{scope}[xshift=10.4cm]
+    \draw[very thick, blue!60!black] (-1.9,0.55) -- (0,0) -- (1.9,0.55);
+    \draw[thick, red!70!black, domain=0:1080, samples=180, smooth]
+         plot ({(0.06+0.00022*\x)*cos(\x)}, {(0.06+0.00022*\x)*sin(\x)});
+    \draw[thick, fill=white] (0,0) circle (2pt);
+    \node[font=\small, red!70!black] at (0,0.62) {$k,\ \theta_r$};
+    \node[font=\small, align=center] at (0,-1.5) {(C) elastic hinge, no load\\ $M_{yy}=-k(\theta-\theta_r)$};
+  \end{scope}
+\end{tikzpicture}

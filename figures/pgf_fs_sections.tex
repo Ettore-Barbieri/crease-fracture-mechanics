@@ -1,0 +1,18 @@
+% Sections across the crease at x = 0: finite-sheet theory (line) and code (circles), xi = 10.
+% Data: figures/data/sec_{theory,code}_a*.dat (w/(theta_r W), best-fit plane removed).
+\begin{tikzpicture}
+\begin{groupplot}[crease, group style={group size=3 by 1, horizontal sep=1.2cm},
+  width=0.335\linewidth, height=5cm, xmin=-1, xmax=1, xlabel={$y/W$},
+  scaled y ticks=false, yticklabel style={/pgf/number format/fixed}]
+\nextgroupplot[title={$a/W=0.1$}, ylabel={$w(0,y)/(\theta_rW)$},
+  legend style={at={(0.5,0.97)}, anchor=north}]
+\addplot[cA] table[x=y, y=w]{\figdir data/sec_theory_a1.dat}; \addlegendentry{theory}
+\addplot[cB, only marks, mark=o, mark size=1.1pt, line width=0.5pt] table[x=y, y=w]{\figdir data/sec_code_a1.dat}; \addlegendentry{code}
+\nextgroupplot[title={$a/W=0.3$}]
+\addplot[cA] table[x=y, y=w]{\figdir data/sec_theory_a3.dat};
+\addplot[cB, only marks, mark=o, mark size=1.1pt, line width=0.5pt] table[x=y, y=w]{\figdir data/sec_code_a3.dat};
+\nextgroupplot[title={$a/W=0.5$}]
+\addplot[cA] table[x=y, y=w]{\figdir data/sec_theory_a5.dat};
+\addplot[cB, only marks, mark=o, mark size=1.1pt, line width=0.5pt] table[x=y, y=w]{\figdir data/sec_code_a5.dat};
+\end{groupplot}
+\end{tikzpicture}

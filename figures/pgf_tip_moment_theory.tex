@@ -1,0 +1,19 @@
+% Bending moment M_yy near the tip of a centre crease loaded by its rest angle, infinite plate.
+% Maps: figures/tipmap_lam{1,10}.png, rendered from a 241 x 240 grid of the Glauert solution (800 terms),
+% M_yy/(k theta_r) clipped to [-1, 1]; same colour map as below.
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=2 by 1, horizontal sep=1.6cm},
+  every tick label/.append style={font=\footnotesize}, label style={font=\small}, title style={font=\small},
+  scale only axis, width=5.2cm, height=5.2cm, xmin=-0.5, xmax=0.5, ymin=-0.5, ymax=0.5,
+  xlabel={$(x-a)/a$}, tick align=outside, enlargelimits=false, axis on top,
+  colormap={crease}{color=(blue!60!black) color=(white) color=(orange!80!black)},
+  point meta min=-1, point meta max=1]
+\nextgroupplot[ylabel={$y/a$}, title={(a) $\lambda=1$}]
+\addplot graphics[xmin=-0.5021, xmax=0.5021, ymin=-0.5021, ymax=0.5021] {\figdir tipmap_lam1.png};
+\draw[black, line width=1.2pt] (axis cs:-0.5,0) -- (axis cs:0,0);
+\nextgroupplot[title={(b) $\lambda=10$}, colorbar,
+  colorbar style={ylabel={$M_{yy}/(k\theta_r)$}, width=0.25cm, height=5.2cm, every tick label/.append style={font=\footnotesize}}]
+\addplot graphics[xmin=-0.5021, xmax=0.5021, ymin=-0.5021, ymax=0.5021] {\figdir tipmap_lam10.png};
+\draw[black, line width=1.2pt] (axis cs:-0.5,0) -- (axis cs:0,0);
+\end{groupplot}
+\end{tikzpicture}

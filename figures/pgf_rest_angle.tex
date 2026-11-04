@@ -1,0 +1,23 @@
+% Fold angle and fold energy release rate of a centre crease loaded by its rest angle.
+% Data: figures/data/rest_theta.dat, rest_Gf.dat (Glauert, 600-800 terms).
+\begin{tikzpicture}
+\begin{groupplot}[crease, group style={group size=2 by 1, horizontal sep=1.9cm},
+                  width=0.46\linewidth, height=5.2cm]
+\nextgroupplot[xlabel={$x/a$}, ylabel={$\theta/\theta_r$}, title={(a) fold angle},
+  xmin=-1, xmax=1, ymin=0, ymax=1.1,
+  legend columns=2, legend style={at={(0.5,0.27)}, anchor=south}]
+\addplot[gray, dashed, thin, forget plot, domain=-1:1, samples=2] {1};
+\addplot[cA] table[x=x, y=l0p1]{\figdir data/rest_theta.dat}; \addlegendentry{$\lambda=0.1$}
+\addplot[cB] table[x=x, y=l1]{\figdir data/rest_theta.dat};   \addlegendentry{$\lambda=1$}
+\addplot[cC] table[x=x, y=l10]{\figdir data/rest_theta.dat};  \addlegendentry{$\lambda=10$}
+\addplot[cD] table[x=x, y=l100]{\figdir data/rest_theta.dat}; \addlegendentry{$\lambda=100$}
+\nextgroupplot[xmode=log, xlabel={$\lambda=a/\ell_k$}, ylabel={$2G_f/(k\theta_r^2)$},
+  title={(b) fold energy release rate per tip},
+  xmin=0.01, xmax=100, ymin=-1.1, ymax=0.05, legend pos=south east]
+\addplot[black] table[x=lam, y=G]{\figdir data/rest_Gf.dat}; \addlegendentry{exact}
+\addplot[black, densely dotted, domain=0.01:0.25, samples=30] {-(1-pi*x)};
+  \addlegendentry{$-(1-\pi\lambda)$}
+\addplot[black, dashdotted, domain=2:100, samples=30] {-1/(2*pi*x)};
+  \addlegendentry{$-1/(2\pi\lambda)$}
+\end{groupplot}
+\end{tikzpicture}

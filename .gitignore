@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+figures/standalone/*.aux
+figures/standalone/*.log
+.DS_Store
+repo.tgz

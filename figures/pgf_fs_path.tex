@@ -1,0 +1,28 @@
+% Centre crease extended towards the edges of a square sheet (finite-sheet theory).
+% Data: figures/data/pathU_xi*.dat (a/W, U/(Lam th_r^2)) and path_xi*.dat (a/W, U, G_f W/(Lam th_r^2) finite, infinite).
+\begin{tikzpicture}
+\begin{groupplot}[crease, group style={group size=2 by 1, horizontal sep=1.9cm},
+                  width=0.46\linewidth, height=5.4cm, xmin=0, xmax=1]
+\nextgroupplot[xlabel={$a/W$}, ylabel={$U\,/\,(\Lambda\theta_r^2)$}, title={(a) stored energy},
+  ymin=0, ymax=1.05, legend columns=3,
+  legend style={at={(0.6,0.03)}, anchor=south}]
+\addplot[cA] table[x=a, y=U]{\figdir data/pathU_xi1.dat};   \addlegendentry{$\xi=1$}
+\addplot[cB] table[x=a, y=U]{\figdir data/pathU_xi10.dat};  \addlegendentry{$\xi=10$}
+\addplot[cC] table[x=a, y=U]{\figdir data/pathU_xi100.dat}; \addlegendentry{$\xi=100$}
+\addplot[cA, densely dotted, forget plot] table[x=a, y=U]{\figdir data/pathU_end_xi1.dat};
+\addplot[cB, densely dotted, forget plot] table[x=a, y=U]{\figdir data/pathU_end_xi10.dat};
+\addplot[cC, densely dotted, forget plot] table[x=a, y=U]{\figdir data/pathU_end_xi100.dat};
+\nextgroupplot[xlabel={$a/W$}, ylabel={$G_f\,W/(\Lambda\theta_r^2)$},
+  title={(b) fold energy release rate per tip}, ymin=-2.2, ymax=2.6]
+\addplot[gray, thin, forget plot, domain=0:1, samples=2] {0};
+\addplot[cA] table[x=a, y=Gf]{\figdir data/path_xi1.dat};
+\addplot[cA, dashed, thin] table[x=a, y=Ginf]{\figdir data/path_xi1.dat};
+\addplot[cB] table[x=a, y=Gf]{\figdir data/path_xi10.dat};
+\addplot[cB, dashed, thin] table[x=a, y=Ginf]{\figdir data/path_xi10.dat};
+\addplot[cC] table[x=a, y=Gf]{\figdir data/path_xi100.dat};
+\addplot[cC, dashed, thin] table[x=a, y=Ginf]{\figdir data/path_xi100.dat};
+\addplot[cA, only marks, mark=*, mark options={fill=white}] coordinates {(0.737,0)};
+\addplot[cB, only marks, mark=*, mark options={fill=white}] coordinates {(0.560,0)};
+\addplot[cC, only marks, mark=*, mark options={fill=white}] coordinates {(0.507,0)};
+\end{groupplot}
+\end{tikzpicture}

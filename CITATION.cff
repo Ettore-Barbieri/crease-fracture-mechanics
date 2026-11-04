@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite the paper and this repository."
+title: "Creases in the light of fracture mechanics: code and data"
+type: software
+authors:
+  - family-names: Barbieri
+    given-names: Ettore
+    affiliation: "Japan Agency for Marine-Earth Science and Technology (JAMSTEC)"
+license: MIT
+repository-code: "https://github.com/Ettore-Barbieri/crease-fracture-mechanics"
+version: 1.0.0
+date-released: 2026-11-04
+keywords:
+  - crease
+  - fold
+  - origami
+  - fracture mechanics
+  - energy release rate
+  - Kirchhoff plate
+preferred-citation:
+  type: article
+  authors:
+    - family-names: Barbieri
+      given-names: Ettore
+  title: "Creases in the light of fracture mechanics"
+  year: 2026
+  notes: "Submitted."

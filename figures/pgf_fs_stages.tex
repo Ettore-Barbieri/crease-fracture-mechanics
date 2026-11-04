@@ -1,0 +1,30 @@
+% Deflection of the square sheet as the centre crease is extended (finite-sheet theory, xi = 10).
+% Drawn as lines: sections across the crease (fixed x; blue on the crease, grey beyond its tips)
+% and lines along the crease (fixed y). Data: figures/data/stage_a*_{xin,xout,y}.dat,
+% w/(theta_r W) with the best-fit plane removed.
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=2 by 2, horizontal sep=1.6cm, vertical sep=1.9cm},
+  width=0.48\linewidth, height=5.2cm, view={-25}{28}, empty line=jump,
+  xmin=-1, xmax=1, ymin=-1, ymax=1, zmin=-0.26, zmax=0.24,
+  xtick={-1,0,1}, ytick={-1,0,1}, xlabel={$x/W$}, ylabel={$y/W$}, zlabel={$w/(\theta_rW)$},
+  tick align=outside, every tick label/.append style={font=\footnotesize},
+  label style={font=\small}, title style={font=\small},
+  scaled z ticks=false, zticklabel style={/pgf/number format/fixed}]
+\nextgroupplot[title={$a/W=0.25$}]
+\addplot3[gray!45, no marks, line width=0.4pt] table[x=x,y=y,z=w]{\figdir data/stage_a25_y.dat};
+\addplot3[gray, no marks, line width=0.5pt] table[x=x,y=y,z=w]{\figdir data/stage_a25_xout.dat};
+\addplot3[cA, no marks, line width=0.7pt] table[x=x,y=y,z=w]{\figdir data/stage_a25_xin.dat};
+\nextgroupplot[title={$a/W=0.5$}]
+\addplot3[gray!45, no marks, line width=0.4pt] table[x=x,y=y,z=w]{\figdir data/stage_a50_y.dat};
+\addplot3[gray, no marks, line width=0.5pt] table[x=x,y=y,z=w]{\figdir data/stage_a50_xout.dat};
+\addplot3[cA, no marks, line width=0.7pt] table[x=x,y=y,z=w]{\figdir data/stage_a50_xin.dat};
+\nextgroupplot[title={$a/W=0.75$}]
+\addplot3[gray!45, no marks, line width=0.4pt] table[x=x,y=y,z=w]{\figdir data/stage_a75_y.dat};
+\addplot3[gray, no marks, line width=0.5pt] table[x=x,y=y,z=w]{\figdir data/stage_a75_xout.dat};
+\addplot3[cA, no marks, line width=0.7pt] table[x=x,y=y,z=w]{\figdir data/stage_a75_xin.dat};
+\nextgroupplot[title={$a/W=0.95$}]
+\addplot3[gray!45, no marks, line width=0.4pt] table[x=x,y=y,z=w]{\figdir data/stage_a95_y.dat};
+\addplot3[gray, no marks, line width=0.5pt] table[x=x,y=y,z=w]{\figdir data/stage_a95_xout.dat};
+\addplot3[cA, no marks, line width=0.7pt] table[x=x,y=y,z=w]{\figdir data/stage_a95_xin.dat};
+\end{groupplot}
+\end{tikzpicture}

@@ -1,0 +1,29 @@
+% Fold energy release rate: infinite plate, finite sheet, and the meshfree code.
+% Data: figures/data/fsGf_xi*.dat (a/W, finite sheet, infinite), fsGf_code_xi*.dat (a/W, mean, minus, plus).
+\begin{tikzpicture}
+\begin{groupplot}[crease, group style={group size=3 by 1, horizontal sep=1.25cm},
+                  width=0.335\linewidth, scaled y ticks=false,
+                  yticklabel style={/pgf/number format/fixed}, height=5.2cm, xmin=0, xmax=0.5, xlabel={$a/W$},
+                  xtick={0,0.1,...,0.5}]
+\nextgroupplot[title={$\xi=1$}, ylabel={$2G_f/(k\theta_r^2)$},
+  legend style={at={(0.97,0.03)}, anchor=south east}]
+\addplot[black, dashed, thin] table[x=a, y=Ginf]{\figdir data/fsGf_xi1.dat}; \addlegendentry{infinite plate}
+\addplot[cA] table[x=a, y=Gfs]{\figdir data/fsGf_xi1.dat}; \addlegendentry{finite sheet}
+\addplot[cA, only marks, mark=*, mark size=1.6pt, mark options={fill=white},
+  error bars/.cd, y dir=both, y explicit]
+  table[x=a, y=m, y error minus=lo, y error plus=hi]{\figdir data/fsGf_code_xi1.dat};
+  \addlegendentry{code}
+\nextgroupplot[title={$\xi=10$}]
+\addplot[black, dashed, thin] table[x=a, y=Ginf]{\figdir data/fsGf_xi10.dat};
+\addplot[cB] table[x=a, y=Gfs]{\figdir data/fsGf_xi10.dat};
+\addplot[cB, only marks, mark=*, mark size=1.6pt, mark options={fill=white},
+  error bars/.cd, y dir=both, y explicit]
+  table[x=a, y=m, y error minus=lo, y error plus=hi]{\figdir data/fsGf_code_xi10.dat};
+\nextgroupplot[title={$\xi=100$}]
+\addplot[black, dashed, thin] table[x=a, y=Ginf]{\figdir data/fsGf_xi100.dat};
+\addplot[cC] table[x=a, y=Gfs]{\figdir data/fsGf_xi100.dat};
+\addplot[cC, only marks, mark=*, mark size=1.6pt, mark options={fill=white},
+  error bars/.cd, y dir=both, y explicit]
+  table[x=a, y=m, y error minus=lo, y error plus=hi]{\figdir data/fsGf_code_xi100.dat};
+\end{groupplot}
+\end{tikzpicture}

@@ -1,0 +1,46 @@
+% Volterra's construction for the three directions of the Frank vector.
+% The cut (red) is the half-plane y=0, x<c, with c=0; the defect line (blue) runs through the thickness at x=c.
+% Orange arrows: jump Delta u of the upper face relative to the lower face, Eq. (volterra), exaggerated.
+\begin{tikzpicture}[>=Stealth, x={(1cm,0cm)}, y={(0.55cm,0.4cm)}, z={(0cm,1cm)}, scale=0.88,
+  plate/.pic={
+    \fill[gray!12] (-2.4,-1,0.4)--(1,-1,0.4)--(1,1,0.4)--(-2.4,1,0.4)--cycle;
+    \draw[gray!50, dashed] (-2.4,1,-0.4)--(1,1,-0.4) (-2.4,1,-0.4)--(-2.4,-1,-0.4) (-2.4,1,-0.4)--(-2.4,1,0.4);
+    \draw[gray] (-2.4,-1,-0.4)--(1,-1,-0.4)--(1,-1,0.4)--(-2.4,-1,0.4)--cycle;
+    \draw[gray] (-2.4,-1,0.4)--(-2.4,1,0.4)--(1,1,0.4)--(1,-1,0.4);
+    \draw[gray] (1,-1,-0.4)--(1,1,-0.4)--(1,1,0.4);
+    \fill[red!70!black, opacity=0.13] (-2.4,0,-0.4)--(0,0,-0.4)--(0,0,0.4)--(-2.4,0,0.4)--cycle;
+    \draw[red!70!black, thick] (-2.4,0,0.4)--(0,0,0.4);
+    \draw[red!70!black, thin] (-2.4,0,-0.4)--(0,0,-0.4) (-2.4,0,-0.4)--(-2.4,0,0.4);
+    \draw[blue!60!black, very thick] (0,0,-0.4)--(0,0,0.4);
+  }]
+  % axes
+  \begin{scope}[shift={(-4.1,-1,-0.4)}]
+    \draw[->] (0,0,0)--(0.6,0,0) node[right, font=\footnotesize] {$x$};
+    \draw[->] (0,0,0)--(0,0.8,0) node[above right, font=\footnotesize, inner sep=1pt] {$y$};
+    \draw[->] (0,0,0)--(0,0,0.6) node[above, font=\footnotesize] {$z$};
+  \end{scope}
+  % (a) Omega along x: fold
+  \pic at (0,0,0) {plate};
+  \foreach \xx in {-2,-1.3,-0.6} {
+    \draw[->, thick, orange!85!black] (\xx,0,0.28)--++(0,-0.55,0);
+    \draw[->, thick, orange!85!black] (\xx,0,-0.28)--++(0,0.55,0);}
+  \draw[->, very thick, blue!60!black] (0,0,0.4)--++(0.9,0,0) node[above, font=\small] {$\bm{\Omega}$};
+  \node[font=\small, align=center] at (-0.7,-1,-1.05) {(a) $\bm{\Omega}=\Omega_x\mathbf{e}_x$: fold\\ $\Delta u_y=-\Omega_x z$, $\jump{w_{,y}}=\Omega_x$};
+  % (b) Omega along y: tear
+  \begin{scope}[xshift=5.9cm]
+  \pic at (0,0,0) {plate};
+  \foreach \xx in {-2,-1.3,-0.6}
+    \draw[->, thick, orange!85!black] (\xx,0,0)--++(0,0,-0.32*\xx);
+  \draw[->, very thick, blue!60!black] (0,0,0.4)--++(0,1.1,0) node[above, font=\small] {$\bm{\Omega}$};
+  \node[font=\small, align=center] at (-0.7,-1,-1.05) {(b) $\bm{\Omega}=\Omega_y\mathbf{e}_y$: tear\\ $\Delta w=-(x-c)\,\Omega_y$};
+  \end{scope}
+  % (c) Omega along z: in-plane wedge
+  \begin{scope}[xshift=11.8cm]
+  \pic at (0,0,0) {plate};
+  \foreach \xx in {-2,-1.3,-0.6} {
+    \draw[->, thick, orange!85!black] (\xx,0,0.25)--++(0,0.4*\xx,0);
+    \draw[->, thick, orange!85!black] (\xx,0,-0.25)--++(0,0.4*\xx,0);}
+  \draw[->, very thick, blue!60!black] (0,0,0.4)--++(0,0,0.85) node[above, font=\small] {$\bm{\Omega}$};
+  \node[font=\small, align=center] at (-0.7,-1,-1.05) {(c) $\bm{\Omega}=\Omega_z\mathbf{e}_z$: in-plane\\ $\Delta u_y=(x-c)\,\Omega_z$};
+  \end{scope}
+\end{tikzpicture}
