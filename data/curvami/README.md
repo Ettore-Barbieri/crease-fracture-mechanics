@@ -1,7 +1,7 @@
 # Output of the meshfree code (Section 8)
 
 These files are the processed output of the meshfree code Curvami
-(https://github.com/Ettore-Barbieri/Curvami), build `e573443`. Each file starts with comment lines
+(https://github.com/Ettore-Barbieri/Curvami-Official), build `e573443`. Each file starts with comment lines
 (`#`) that give the run and its parameters.
 
 ## The runs

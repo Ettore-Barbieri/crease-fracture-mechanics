@@ -69,7 +69,7 @@ These follow the paper.
 
 ## The meshfree code
 
-The nonlinear results of Section 8 come from Curvami, a meshfree code for Kirchhoff–Love plates and shells with creases. Curvami is a separate repository: https://github.com/Ettore-Barbieri/Curvami (DOI: to be added).
+The nonlinear results of Section 8 come from Curvami, a meshfree code for Kirchhoff–Love plates and shells with creases. Curvami is a separate repository: https://github.com/Ettore-Barbieri/Curvami-Official (DOI: to be added).
 
 ## How to cite
 
